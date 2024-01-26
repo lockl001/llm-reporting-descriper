@@ -1,0 +1,996 @@
+{
+  "title": "Publication overview - last 3 years",
+  "description": "Overview of outputs within the period. Including PlumX metrics, publication status, workflow and details from from both associated journals and publishers.",
+  "category": "/dk/atira/pure/report/category/research_management",
+  "primaryDriverSystemNames": [
+    "ResearchOutput"
+  ],
+  "templateConfigurationKey": null,
+  "templateType": "ELSEVIER_PROVIDED",
+  "sharingType": "SHARED_WITH_EVERYONE",
+  "sharedWithUserIds": [],
+  "shareSnapshotsWithUserIds": [],
+  "sendNotifications": true,
+  "schedulingDefinition": null,
+  "locale": "en_GB",
+  "dataTableExportFormat": "CSV",
+  "shareDataStorySnapshot": true,
+  "dataTablesToExport": [],
+  "serializedReport": {
+    "version": "5.30.0-SNAPSHOT",
+    "migration": 22,
+    "dataSet": null,
+    "dataSets": [
+      {
+        "id": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+        "series": [
+          {
+            "id": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+            "systemName": "ResearchOutput",
+            "functions": [
+              {
+                "id": "18eaf43c-ce08-394e-8177-ab225173f5c8",
+                "functionId": "ResearchOutput.project(title)",
+                "type": "PROJECTION",
+                "customLabel": "Title"
+              },
+              {
+                "id": "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+                "functionId": "ResearchOutput.project(currentPublicationStatusYear)",
+                "type": "PROJECTION",
+                "customLabel": "Year"
+              },
+              {
+                "id": "4bb6db3c-5102-9dc1-4287-22ead5248999",
+                "functionId": "ResearchOutput.project(currentPublicationStatus)",
+                "type": "PROJECTION",
+                "customLabel": "Current publication status",
+                "width": 137
+              },
+              {
+                "id": "808f4370-9204-ed72-85f7-30c5ffa50adf",
+                "functionId": "ResearchOutput.project(type)",
+                "type": "PROJECTION",
+                "width": 134
+              },
+              {
+                "id": "7b30eac7-2403-48e4-470c-59dc233230b9",
+                "functionId": "ResearchOutput.count(id)",
+                "type": "AGGREGATION",
+                "customLabel": "Publication status",
+                "split": {
+                  "dimensions": [
+                    {
+                      "functionId": "ResearchOutput.project(currentPublicationStatus)",
+                      "splitValue": {
+                        "distinctValues": [
+                          "/dk/atira/pure/researchoutput/status/inprep",
+                          "/dk/atira/pure/researchoutput/status/submitted",
+                          "/dk/atira/pure/researchoutput/status/inpress",
+                          "/dk/atira/pure/researchoutput/status/epub",
+                          "/dk/atira/pure/researchoutput/status/published",
+                          "/dk/atira/pure/researchoutput/status/unpublished"
+                        ]
+                      }
+                    }
+                  ],
+                  "includeComplementary": false
+                }
+              },
+              {
+                "id": "2198efeb-5cab-923f-707b-f461e46341ed",
+                "functionId": "ResearchOutput.count(id)",
+                "type": "AGGREGATION",
+                "customLabel": "Workflow",
+                "split": {
+                  "dimensions": [
+                    {
+                      "functionId": "ResearchOutput.project(currentWorkflowStep)",
+                      "splitValue": {
+                        "distinctValues": [
+                          "entryInProgress",
+                          "forApproval",
+                          "forRevalidation",
+                          "approved",
+                          "validated"
+                        ]
+                      }
+                    }
+                  ],
+                  "includeComplementary": false
+                }
+              },
+              {
+                "id": "5d1b5d0c-4c0c-ac8b-2efa-953e0e4e0acc",
+                "functionId": "ResearchOutput.project(publicationCategory)",
+                "type": "PROJECTION",
+                "customLabel": "Publication category",
+                "width": 122
+              },
+              {
+                "id": "cdcb8f10-c632-a3c7-9b10-54b69ece7464",
+                "functionId": "ResearchOutput.project(keywords:ASJCSubjectAreas)",
+                "type": "PROJECTION",
+                "customLabel": "ASJC Scopus subject areas"
+              },
+              {
+                "id": "34581793-8191-8a56-b728-d4f7bdae4122",
+                "functionId": "ResearchOutput.project(peerReviewed)",
+                "type": "PROJECTION",
+                "customLabel": "Peer-reviewed",
+                "width": 198
+              },
+              {
+                "id": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+                "functionId": "ResearchOutput.count(id)",
+                "type": "AGGREGATION",
+                "customLabel": "#outputs"
+              }
+            ],
+            "filters": [],
+            "filterExpression": {
+              "version": 2,
+              "expression": []
+            }
+          },
+          {
+            "id": "6cbcd3e6-16a1-ec62-4fa2-ce3776b4d752",
+            "systemName": "ReportingResearchOutputMetric",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.citation_count_plumx(ReportingResearchOutputMetric)"
+            },
+            "functions": [
+              {
+                "id": "8f83db1b-2a73-8895-f8c4-1e80dfe009d0",
+                "functionId": "ReportingResearchOutputMetric.sum(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "# PlumX Citations"
+              }
+            ]
+          },
+          {
+            "id": "f42e8869-6b92-58b8-64bc-911cbece42b9",
+            "systemName": "ReportingResearchOutputMetric",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.social_media(ReportingResearchOutputMetric)"
+            },
+            "functions": [
+              {
+                "id": "816b7dc7-489d-c6a1-c82d-0299239ab82b",
+                "functionId": "ReportingResearchOutputMetric.sum(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#PlumX social media"
+              }
+            ],
+            "filters": [],
+            "filterExpression": {
+              "version": 2,
+              "expression": []
+            }
+          },
+          {
+            "id": "e2f8d23d-5d7f-e644-ae56-a19b640490d0",
+            "systemName": "ReportingResearchOutputMetric",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.mentions(ReportingResearchOutputMetric)"
+            },
+            "functions": [
+              {
+                "id": "bc358474-bcd4-0a74-7a90-1a3a37e0cb7e",
+                "functionId": "ReportingResearchOutputMetric.sum(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#PlumX mentions",
+                "width": 169
+              }
+            ],
+            "filters": [],
+            "filterExpression": {
+              "version": 2,
+              "expression": []
+            }
+          },
+          {
+            "id": "5df5acef-14bd-bf50-8c4f-8dc3c06c64b9",
+            "systemName": "ReportingResearchOutputMetric",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.captures(ReportingResearchOutputMetric)"
+            },
+            "functions": [
+              {
+                "id": "c5a31fe1-469e-9373-91c5-3d8339579745",
+                "functionId": "ReportingResearchOutputMetric.sum(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#PlumX captures"
+              }
+            ],
+            "filters": [],
+            "filterExpression": {
+              "version": 2,
+              "expression": []
+            }
+          },
+          {
+            "id": "bd830b05-c8a9-905c-375b-a54de0d6c7ff",
+            "systemName": "ReportingResearchOutputMetric",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.usage(ReportingResearchOutputMetric)"
+            },
+            "functions": [
+              {
+                "id": "244b4782-4def-bf22-ac33-646d36f4b5c0",
+                "functionId": "ReportingResearchOutputMetric.sum(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#PlumX usage"
+              }
+            ],
+            "filters": [],
+            "filterExpression": {
+              "version": 2,
+              "expression": []
+            }
+          },
+          {
+            "id": "6aae38a9-c0ed-0d34-61e7-29a0614182ed",
+            "systemName": "ReportingResearchOutputMetric",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.citation_count_scopus(ReportingResearchOutputMetric)"
+            },
+            "functions": [
+              {
+                "id": "523185d0-8fc5-4083-d5c9-9b8cadf63497",
+                "functionId": "ReportingResearchOutputMetric.sum(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#Scopus citations"
+              }
+            ],
+            "filters": [
+              {
+                "filterId": "ReportingResearchOutputMetric.filter(source)",
+                "groupRef": "data-set-group",
+                "selectMany": {
+                  "limitationType": "MATCH",
+                  "values": [
+                    "/dk/atira/pure/source/citation/scopus"
+                  ]
+                }
+              },
+              {
+                "filterId": "ReportingResearchOutputMetric.filter(metric)",
+                "groupRef": "data-set-group",
+                "selectMany": {
+                  "limitationType": "MATCH",
+                  "values": [
+                    "/dk/atira/pure/report/metrics/researchoutput/citation_count"
+                  ]
+                }
+              }
+            ],
+            "filterExpression": {
+              "version": 2,
+              "expression": [
+                {
+                  "exprId": "e17f4095-6766-d959-335f-8d9c21550818",
+                  "expr": "VALUE",
+                  "ref": "ReportingResearchOutputMetric.filter(source)",
+                  "groupIdRef": "data-set-group"
+                },
+                {
+                  "exprId": "e17f4095-6766-d959-335f-8d9c21550818-token",
+                  "expr": "TOKEN",
+                  "exprTokenType": "AND",
+                  "groupIdRef": "data-set-group"
+                },
+                {
+                  "exprId": "dcbcb10e-a5c5-8428-6706-38ce9ec22e6c",
+                  "expr": "VALUE",
+                  "ref": "ReportingResearchOutputMetric.filter(metric)",
+                  "groupIdRef": "data-set-group"
+                },
+                {
+                  "exprId": "data-set-group",
+                  "expr": "GROUP",
+                  "exprGroupType": "EXPR"
+                }
+              ]
+            }
+          },
+          {
+            "id": "048789d6-3beb-7aeb-8b9f-82a886b24854",
+            "systemName": "Publisher",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.publishedBy(Publisher)"
+            },
+            "functions": [
+              {
+                "id": "182f8f68-b6ad-1dba-de47-dc23841e48c0",
+                "functionId": "Publisher.project(name)",
+                "type": "PROJECTION",
+                "customLabel": "Publisher"
+              }
+            ],
+            "filterExpression": {
+              "version": 2,
+              "expression": []
+            }
+          },
+          {
+            "id": "cc4c9b9f-f2ac-4590-e74d-c9ee31466597",
+            "systemName": "Journal",
+            "driverRelation": {
+              "driverSeriesId": "d3e9fb2c-3f8f-4c62-e988-a179d327470c",
+              "semanticRelationshipId": "ResearchOutput.publishedIn(Journal)"
+            },
+            "functions": [
+              {
+                "id": "4e4e16c8-4eef-1e87-e2b7-35780d1c4122",
+                "functionId": "Journal.project(title)",
+                "type": "PROJECTION",
+                "customLabel": "Journal",
+                "ordering": null
+              },
+              {
+                "id": "4f0a0d84-3214-7b5b-b2a4-04d1efee0cbd",
+                "functionId": "Journal.project(keywords:ASJCSubjectAreas)",
+                "type": "PROJECTION",
+                "customLabel": "ASJC Scopus subject areas"
+              }
+            ],
+            "filterExpression": {
+              "version": 2,
+              "expression": []
+            }
+          },
+          {
+            "id": "c2316a32-3580-78c9-4cee-a89e9d8cad41",
+            "systemName": "ReportingJournalMetric",
+            "driverRelation": {
+              "driverSeriesId": "cc4c9b9f-f2ac-4590-e74d-c9ee31466597",
+              "semanticRelationshipId": "Journal.sjr(ReportingJournalMetric)"
+            },
+            "functions": [
+              {
+                "id": "6d9cb9a2-83f4-9fa8-613b-796aaeb6854f",
+                "functionId": "ReportingJournalMetric.avg(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#SJR (avg)",
+                "split": {
+                  "dimensions": [
+                    {
+                      "functionId": "ReportingJournalMetric.project(year)",
+                      "splitValue": {
+                        "rangeValue": {
+                          "min": 2020,
+                          "max": 2023,
+                          "step": 1
+                        }
+                      }
+                    }
+                  ],
+                  "includeComplementary": false
+                }
+              }
+            ],
+            "filters": [
+              {
+                "filterId": "ReportingJournalMetric.filter(metric)",
+                "groupRef": "data-set-group",
+                "selectMany": {
+                  "limitationType": "MATCH",
+                  "values": [
+                    "/dk/atira/pure/report/metrics/journal/sjr"
+                  ]
+                }
+              }
+            ],
+            "filterExpression": {
+              "version": 2,
+              "expression": [
+                {
+                  "exprId": "37ec4997-e06d-4998-b0f5-02752480e811",
+                  "expr": "VALUE",
+                  "ref": "ReportingJournalMetric.filter(metric)",
+                  "groupIdRef": "data-set-group"
+                },
+                {
+                  "exprId": "data-set-group",
+                  "expr": "GROUP",
+                  "exprGroupType": "EXPR"
+                }
+              ]
+            }
+          },
+          {
+            "id": "703b14be-22e7-f01c-d671-cb9f492fa989",
+            "systemName": "ReportingJournalMetric",
+            "driverRelation": {
+              "driverSeriesId": "cc4c9b9f-f2ac-4590-e74d-c9ee31466597",
+              "semanticRelationshipId": "Journal.metrics(ReportingJournalMetric)"
+            },
+            "functions": [
+              {
+                "id": "d5972953-fa05-ba9c-78be-77eaec0ff2fc",
+                "functionId": "ReportingJournalMetric.avg(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#Cite Score (avg)",
+                "split": {
+                  "dimensions": [
+                    {
+                      "functionId": "ReportingJournalMetric.project(year)",
+                      "splitValue": {
+                        "rangeValue": {
+                          "min": 2020,
+                          "max": 2023,
+                          "step": 1
+                        }
+                      }
+                    }
+                  ],
+                  "includeComplementary": false
+                }
+              }
+            ],
+            "filters": [
+              {
+                "filterId": "ReportingJournalMetric.filter(metric)",
+                "groupRef": "data-set-group",
+                "selectMany": {
+                  "limitationType": "MATCH",
+                  "values": []
+                }
+              }
+            ],
+            "filterExpression": {
+              "version": 2,
+              "expression": [
+                {
+                  "exprId": "f4be9b9a-5346-1516-2ecf-e11f3ca35a5e",
+                  "expr": "VALUE",
+                  "ref": "ReportingJournalMetric.filter(metric)",
+                  "groupIdRef": "data-set-group"
+                },
+                {
+                  "exprId": "data-set-group",
+                  "expr": "GROUP",
+                  "exprGroupType": "EXPR"
+                }
+              ]
+            }
+          },
+          {
+            "id": "1b6d7509-1939-d4e1-a347-4fbeb75ec5ab",
+            "systemName": "ReportingJournalMetric",
+            "driverRelation": {
+              "driverSeriesId": "cc4c9b9f-f2ac-4590-e74d-c9ee31466597",
+              "semanticRelationshipId": "Journal.metrics(ReportingJournalMetric)"
+            },
+            "functions": [
+              {
+                "id": "f9b2eeae-74c3-61e6-74f4-10b7cae42d92",
+                "functionId": "ReportingJournalMetric.avg(numericValue)",
+                "type": "AGGREGATION",
+                "customLabel": "#SNIP (avg)",
+                "split": {
+                  "dimensions": [
+                    {
+                      "functionId": "ReportingJournalMetric.project(year)",
+                      "splitValue": {
+                        "rangeValue": {
+                          "min": 2020,
+                          "max": 2023,
+                          "step": 1
+                        }
+                      }
+                    }
+                  ],
+                  "includeComplementary": false
+                }
+              }
+            ],
+            "filters": [
+              {
+                "filterId": "ReportingJournalMetric.filter(metric)",
+                "groupRef": "data-set-group",
+                "selectMany": {
+                  "limitationType": "MATCH",
+                  "values": [
+                    "/dk/atira/pure/report/metrics/journal/snip"
+                  ]
+                }
+              }
+            ],
+            "filterExpression": {
+              "version": 2,
+              "expression": [
+                {
+                  "exprId": "5abbc747-7398-20a5-ba50-e8d54a0b9bb6",
+                  "expr": "VALUE",
+                  "ref": "ReportingJournalMetric.filter(metric)",
+                  "groupIdRef": "data-set-group"
+                },
+                {
+                  "exprId": "data-set-group",
+                  "expr": "GROUP",
+                  "exprGroupType": "EXPR"
+                }
+              ]
+            }
+          }
+        ],
+        "expandMode": false,
+        "name": "Research outputs in period"
+      }
+    ],
+    "dataStory": {
+      "modelType": "dataStoryType",
+      "layout": "list",
+      "grid": {
+        "strategy": "auto",
+        "positions": null
+      },
+      "elements": [
+        {
+          "modelType": "dataStoryElementType",
+          "columnOrdering": [],
+          "measureOrdering": [],
+          "sorting": [],
+          "subElementsInOrder": [],
+          "id": "1f4c6a76-a12f-91d3-32a0-06da5c52c7dd",
+          "type": "scoreCard",
+          "supportsFiltering": true,
+          "filters": [],
+          "defaultName": "Scorecard",
+          "annotationOrdering": [
+            "red",
+            "yellow",
+            "green",
+            "locked"
+          ],
+          "showPercentage": false,
+          "pivotTable": false,
+          "collapseHeaders": false,
+          "fetchMode": "all",
+          "autoRefreshInterval": null,
+          "grandTotalCustomLabels": {
+            "grandTotal": "Total count",
+            "grandTotalPercent": "Total in %"
+          },
+          "visibility": "visible",
+          "dimensions": [],
+          "annotations": [],
+          "supportedNumberOfMeasures": 10,
+          "supportedNumberOfDimensions": 0,
+          "measures": null,
+          "title": "",
+          "metrics": [
+            {
+              "metricId": "4b3a5731-d27a-2583-9cda-faf2f69700a6",
+              "value": {
+                "columnId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+                "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+                "functionDefinitionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+                "label": "#outputs",
+                "shorthand": "S"
+              },
+              "format": {
+                "color": "#007398"
+              },
+              "label": "#outputs"
+            },
+            {
+              "metricId": "aee4b38f-e11c-b76c-f7bd-5502a042854b",
+              "value": {
+                "columnId": "75982b9ab8f8b6365855ed3bd29cc4ab",
+                "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+                "functionDefinitionId": "75982b9ab8f8b6365855ed3bd29cc4ab",
+                "parentId": "7b30eac7-2403-48e4-470c-59dc233230b9",
+                "label": "Published",
+                "shorthand": "I"
+              },
+              "format": {
+                "color": "#007398"
+              },
+              "label": "Published"
+            },
+            {
+              "metricId": "b786c0fb-b559-27a1-22d5-d0114163349f",
+              "value": {
+                "columnId": "523185d0-8fc5-4083-d5c9-9b8cadf63497",
+                "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+                "functionDefinitionId": "523185d0-8fc5-4083-d5c9-9b8cadf63497",
+                "label": "#Scopus citations",
+                "shorthand": "X"
+              },
+              "format": {
+                "color": "#E9711C"
+              },
+              "label": "#Scopus citations"
+            }
+          ],
+          "alignment": "center",
+          "size": "large",
+          "disableDrilldown": true
+        },
+        {
+          "modelType": "dataStoryElementType",
+          "columnOrdering": [
+            "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+            "040bb06d-cfed-0f90-e563-467dfcb573fa"
+          ],
+          "measureOrdering": [],
+          "sorting": [
+            {
+              "functionId": "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+              "descending": false
+            }
+          ],
+          "subElementsInOrder": [],
+          "id": "b955632b-f689-f6f8-8532-3a826fa51d68",
+          "type": "columnChart",
+          "supportsFiltering": true,
+          "filters": [],
+          "defaultName": "Column chart",
+          "annotationOrdering": [
+            "red",
+            "yellow",
+            "green",
+            "locked"
+          ],
+          "showPercentage": false,
+          "pivotTable": false,
+          "collapseHeaders": false,
+          "fetchMode": "all",
+          "autoRefreshInterval": null,
+          "grandTotalCustomLabels": {
+            "grandTotal": "Total count",
+            "grandTotalPercent": "Total in %"
+          },
+          "visibility": "visible",
+          "dimensions": [
+            {
+              "columnId": "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+              "functionDefinitionId": "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            }
+          ],
+          "annotations": [],
+          "measures": [
+            {
+              "columnId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "functionDefinitionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            }
+          ],
+          "columnWidths": [],
+          "title": "Outputs in period",
+          "rowsPerPage": 50,
+          "rowLimit": 5
+        },
+        {
+          "modelType": "dataStoryElementType",
+          "columnOrdering": [
+            "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+            "7b30eac7-2403-48e4-470c-59dc233230b9",
+            "2198efeb-5cab-923f-707b-f461e46341ed",
+            "040bb06d-cfed-0f90-e563-467dfcb573fa"
+          ],
+          "measureOrdering": [],
+          "sorting": [
+            {
+              "functionId": "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+              "descending": true
+            }
+          ],
+          "subElementsInOrder": [],
+          "id": "f882c964-bffd-e9b8-b5bc-85158424f1c5",
+          "type": "table",
+          "supportsFiltering": true,
+          "filters": [],
+          "defaultName": "Table",
+          "annotationOrdering": [
+            "red",
+            "yellow",
+            "green",
+            "locked"
+          ],
+          "showPercentage": false,
+          "pivotTable": false,
+          "collapseHeaders": false,
+          "fetchMode": "all",
+          "autoRefreshInterval": null,
+          "grandTotalCustomLabels": {
+            "grandTotal": "Total count",
+            "grandTotalPercent": "Total in %"
+          },
+          "visibility": "visible",
+          "dimensions": [
+            {
+              "columnId": "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+              "functionDefinitionId": "ec82cc41-f5ae-d30a-6583-d53d81f29471",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            }
+          ],
+          "annotations": [],
+          "measures": [
+            {
+              "columnId": "7b30eac7-2403-48e4-470c-59dc233230b9",
+              "functionDefinitionId": "7b30eac7-2403-48e4-470c-59dc233230b9",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            },
+            {
+              "columnId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "functionDefinitionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            },
+            {
+              "columnId": "2198efeb-5cab-923f-707b-f461e46341ed",
+              "functionDefinitionId": "2198efeb-5cab-923f-707b-f461e46341ed",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            }
+          ],
+          "columnWidths": [],
+          "title": "Publication status and workflow",
+          "rowsPerPage": 50,
+          "rowLimit": 5,
+          "groupBy": [
+            "ec82cc41-f5ae-d30a-6583-d53d81f29471"
+          ],
+          "groupByAllDimensions": false
+        },
+        {
+          "modelType": "dataStoryElementType",
+          "columnOrdering": [
+            "4e4e16c8-4eef-1e87-e2b7-35780d1c4122",
+            "040bb06d-cfed-0f90-e563-467dfcb573fa"
+          ],
+          "measureOrdering": [],
+          "sorting": [
+            {
+              "functionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "descending": true
+            }
+          ],
+          "subElementsInOrder": [],
+          "id": "fd2ed47f-aba0-f504-08f0-c5ea742924e8",
+          "type": "table",
+          "supportsFiltering": true,
+          "filters": [],
+          "defaultName": "Table",
+          "annotationOrdering": [
+            "red",
+            "yellow",
+            "green",
+            "locked"
+          ],
+          "showPercentage": false,
+          "pivotTable": false,
+          "collapseHeaders": false,
+          "fetchMode": "all",
+          "autoRefreshInterval": null,
+          "grandTotalCustomLabels": {
+            "grandTotal": "Total count",
+            "grandTotalPercent": "Total in %"
+          },
+          "visibility": "visible",
+          "dimensions": [
+            {
+              "columnId": "4e4e16c8-4eef-1e87-e2b7-35780d1c4122",
+              "functionDefinitionId": "4e4e16c8-4eef-1e87-e2b7-35780d1c4122",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            }
+          ],
+          "annotations": [],
+          "measures": [
+            {
+              "columnId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "label": "#outputs",
+              "shorthand": "W"
+            },
+            {
+              "columnId": "f9b2eeae-74c3-61e6-74f4-10b7cae42d92",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "f9b2eeae-74c3-61e6-74f4-10b7cae42d92",
+              "label": "#SNIP (avg)",
+              "shorthand": "AD - AH"
+            },
+            {
+              "columnId": "6d9cb9a2-83f4-9fa8-613b-796aaeb6854f",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "6d9cb9a2-83f4-9fa8-613b-796aaeb6854f",
+              "label": "#SJR (avg)",
+              "shorthand": "AA - AD"
+            }
+          ],
+          "columnWidths": [],
+          "title": "Most used journals by related outputs",
+          "rowsPerPage": 10,
+          "rowLimit": 20,
+          "groupBy": [
+            "4e4e16c8-4eef-1e87-e2b7-35780d1c4122"
+          ],
+          "groupByAllDimensions": false
+        },
+        {
+          "modelType": "dataStoryElementType",
+          "columnOrdering": [
+            "4e4e16c8-4eef-1e87-e2b7-35780d1c4122",
+            "040bb06d-cfed-0f90-e563-467dfcb573fa",
+            "816b7dc7-489d-c6a1-c82d-0299239ab82b",
+            "bc358474-bcd4-0a74-7a90-1a3a37e0cb7e",
+            "c5a31fe1-469e-9373-91c5-3d8339579745",
+            "244b4782-4def-bf22-ac33-646d36f4b5c0",
+            "8f83db1b-2a73-8895-f8c4-1e80dfe009d0",
+            "523185d0-8fc5-4083-d5c9-9b8cadf63497"
+          ],
+          "measureOrdering": [],
+          "sorting": [
+            {
+              "functionId": "523185d0-8fc5-4083-d5c9-9b8cadf63497",
+              "descending": true
+            }
+          ],
+          "subElementsInOrder": [],
+          "id": "2cb3abe3-9de0-7e4c-887e-189c8a666793",
+          "type": "table",
+          "supportsFiltering": true,
+          "filters": [],
+          "defaultName": "Table",
+          "annotationOrdering": [
+            "red",
+            "yellow",
+            "green",
+            "locked"
+          ],
+          "showPercentage": false,
+          "pivotTable": false,
+          "collapseHeaders": false,
+          "fetchMode": "all",
+          "autoRefreshInterval": null,
+          "grandTotalCustomLabels": {
+            "grandTotal": "Total count",
+            "grandTotalPercent": "Total in %"
+          },
+          "visibility": "visible",
+          "dimensions": [
+            {
+              "columnId": "4e4e16c8-4eef-1e87-e2b7-35780d1c4122",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "4e4e16c8-4eef-1e87-e2b7-35780d1c4122",
+              "label": "Journal",
+              "shorthand": "AD"
+            }
+          ],
+          "annotations": [],
+          "measures": [
+            {
+              "columnId": "816b7dc7-489d-c6a1-c82d-0299239ab82b",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "816b7dc7-489d-c6a1-c82d-0299239ab82b",
+              "label": "#PlumX social media",
+              "shorthand": "X"
+            },
+            {
+              "columnId": "bc358474-bcd4-0a74-7a90-1a3a37e0cb7e",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "bc358474-bcd4-0a74-7a90-1a3a37e0cb7e",
+              "label": "#PlumX mentions",
+              "shorthand": "Y"
+            },
+            {
+              "columnId": "c5a31fe1-469e-9373-91c5-3d8339579745",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "c5a31fe1-469e-9373-91c5-3d8339579745",
+              "label": "#PlumX captures",
+              "shorthand": "Z"
+            },
+            {
+              "columnId": "244b4782-4def-bf22-ac33-646d36f4b5c0",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "244b4782-4def-bf22-ac33-646d36f4b5c0",
+              "label": "#PlumX usage",
+              "shorthand": "AA"
+            },
+            {
+              "columnId": "523185d0-8fc5-4083-d5c9-9b8cadf63497",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "523185d0-8fc5-4083-d5c9-9b8cadf63497",
+              "label": "#Scopus citations",
+              "shorthand": "AB"
+            },
+            {
+              "columnId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "label": "#outputs",
+              "shorthand": "W"
+            },
+            {
+              "columnId": "8f83db1b-2a73-8895-f8c4-1e80dfe009d0",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "8f83db1b-2a73-8895-f8c4-1e80dfe009d0",
+              "label": "# PlumX Citations",
+              "shorthand": "T"
+            }
+          ],
+          "columnWidths": [],
+          "title": "Most impactful journals",
+          "rowsPerPage": 10,
+          "rowLimit": 50,
+          "groupBy": [
+            "4e4e16c8-4eef-1e87-e2b7-35780d1c4122"
+          ],
+          "groupByAllDimensions": false
+        },
+        {
+          "modelType": "dataStoryElementType",
+          "columnOrdering": [
+            "182f8f68-b6ad-1dba-de47-dc23841e48c0"
+          ],
+          "measureOrdering": [],
+          "sorting": [
+            {
+              "functionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "descending": true
+            }
+          ],
+          "subElementsInOrder": [],
+          "id": "ce15bd8f-403d-6756-59cf-3eb14d6be7ed",
+          "type": "table",
+          "supportsFiltering": true,
+          "filters": [],
+          "defaultName": "Table",
+          "annotationOrdering": [
+            "red",
+            "yellow",
+            "green",
+            "locked"
+          ],
+          "showPercentage": false,
+          "pivotTable": false,
+          "collapseHeaders": false,
+          "fetchMode": "all",
+          "autoRefreshInterval": null,
+          "grandTotalCustomLabels": {
+            "grandTotal": "Total count",
+            "grandTotalPercent": "Total in %"
+          },
+          "visibility": "visible",
+          "dimensions": [
+            {
+              "columnId": "182f8f68-b6ad-1dba-de47-dc23841e48c0",
+              "functionDefinitionId": "182f8f68-b6ad-1dba-de47-dc23841e48c0",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b"
+            }
+          ],
+          "annotations": [],
+          "measures": [
+            {
+              "columnId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "dataSetId": "c4f48d89-031c-17fe-97d8-4998bee3124b",
+              "functionDefinitionId": "040bb06d-cfed-0f90-e563-467dfcb573fa",
+              "label": "#outputs",
+              "shorthand": "W"
+            }
+          ],
+          "columnWidths": [],
+          "title": "Most used publishers",
+          "rowsPerPage": 10,
+          "rowLimit": 50,
+          "groupBy": [
+            "182f8f68-b6ad-1dba-de47-dc23841e48c0"
+          ],
+          "groupByAllDimensions": false
+        }
+      ]
+    }
+  },
+  "idToSave": "14733237"
+}
